@@ -10,9 +10,15 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       body: Container(
+        padding: EdgeInsets.only(
+          left: 20,
+          right: 20,
+          top: 20,
+          bottom: 40,
+        ),
         width: double.infinity,
-        height: double.infinity,
         decoration: BoxDecoration(
+          color: kPrimaryColor.withOpacity(0.03),
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(50),
             bottomRight: Radius.circular(50),

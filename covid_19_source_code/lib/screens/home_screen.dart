@@ -1,4 +1,6 @@
 import 'package:covid19sourcecode/constants.dart';
+import 'package:covid19sourcecode/widgets/line_chart.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,6 +22,7 @@ class HomeScreen extends StatelessWidget {
         child: Wrap(
           children: <Widget>[
             Container(
+              width: 200,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
@@ -55,21 +58,33 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Row(
                     children: <Widget>[
-                      RichText(
-                        text: TextSpan(
-                          style: TextStyle(color: kTextColor),
-                          children: [
-                            TextSpan(
-                              text: "1,062\n",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .title
-                                  .copyWith(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(text: "People still"),
-                          ],
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: RichText(
+                          text: TextSpan(
+                            style: TextStyle(color: kTextColor),
+                            children: [
+                              TextSpan(
+                                text: "1,062\n",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .title
+                                    .copyWith(fontWeight: FontWeight.bold),
+                              ),
+                              TextSpan(
+                                text: "People",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  height: 2,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
+                      Expanded(
+                        child: LineReportChart(),
+                      )
                     ],
                   )
                 ],
